@@ -10,7 +10,4 @@ console.log(checkForName);
 
 console.log("CHANGE!!");
 
-export {
-    checkForName,
-    handleSubmit
-}
+export { checkForName, handleSubmit };

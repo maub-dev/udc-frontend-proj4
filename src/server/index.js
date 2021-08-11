@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 var path = require('path')
+const fetch = require('node-fetch')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 
@@ -26,7 +27,7 @@ app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
 
-app.post('/eval', requestMeaningCloud);
+app.post('/evalText', requestMeaningCloud);
 
 const requestMeaningCloud = (req, res) => {
     const formdata = new FormData();
@@ -39,7 +40,7 @@ const requestMeaningCloud = (req, res) => {
       body: formdata,
       redirect: 'follow'
     };
-    console.log('aqui')
+    
     const response = fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
       .then(response => ({
         status: response.status, 

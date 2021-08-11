@@ -8,8 +8,13 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     output: {
-        libraryTarget: "var",
-        library: "Client",
+        library: {
+            name: 'Client',
+            type: 'var',
+        }
+    },
+    devServer: {
+        injectClient: false
     },
     module: {
         rules: [
